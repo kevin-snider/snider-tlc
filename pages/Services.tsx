@@ -2,14 +2,13 @@
 import React from 'react';
 import { SERVICES } from '../constants';
 import { Link } from 'react-router-dom';
-import { Leaf, Sun, CloudRain, Snowflake, CheckCircle } from 'lucide-react';
+import { Leaf, Sun, Snowflake, CheckCircle } from 'lucide-react';
 
 const Services: React.FC = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Leaf': return <Leaf className="w-8 h-8" />;
       case 'Sun': return <Sun className="w-8 h-8" />;
-      case 'CloudRain': return <CloudRain className="w-8 h-8" />;
       case 'Snowflake': return <Snowflake className="w-8 h-8" />;
       default: return <CheckCircle className="w-8 h-8" />;
     }
@@ -167,16 +166,29 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Guarantee */}
-      <section className="py-24 bg-gray-50 border-y border-gray-200">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-          <div className="bg-white p-12 md:p-16 rounded-[3rem] shadow-xl border border-gray-100">
-            <h2 className="text-3xl font-black text-navy font-heading mb-6">The Snider Standard</h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-10 italic">
+      {/* Guarantee - "The Snider Standard" with Background Image */}
+      <section className="py-32 relative overflow-hidden flex items-center justify-center">
+        {/* Background Image Layer */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: "url('https://drive.google.com/thumbnail?id=1bWU6TCrwA0ow2wqRMo5EMxFj6GhBncFe&sz=w2000')"
+          }}
+        />
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 z-10 bg-navy/60 backdrop-blur-[2px]" />
+        
+        <div className="max-w-5xl mx-auto px-4 relative z-20 text-center">
+          <div className="bg-white/95 backdrop-blur-md p-12 md:p-20 rounded-[3.5rem] shadow-2xl border border-white/20 transform transition-transform hover:scale-[1.01]">
+            <span className="text-brandOrange font-black tracking-widest uppercase mb-4 block">Our Quality Commitment</span>
+            <h2 className="text-4xl md:text-5xl font-black text-navy font-heading mb-8">The Snider Standard</h2>
+            <p className="text-gray-700 text-xl md:text-2xl leading-relaxed mb-12 italic font-medium">
               "We strive to exceed industry standards in every way possible. If you're not satisfied with the state of your grounds, we aren't either. Our multi-award-winning track record is a testament to our commitment to your property's potential."
             </p>
-            <div className="flex justify-center">
-              <span className="text-navy font-black text-xl">— Steve Snider</span>
+            <div className="flex flex-col items-center">
+              <div className="w-20 h-1 bg-brandOrange mb-6 rounded-full" />
+              <span className="text-navy font-black text-2xl tracking-tight">— Steve Snider</span>
+              <span className="text-gray-500 font-bold text-sm uppercase tracking-[0.2em] mt-2">President & Founder</span>
             </div>
           </div>
         </div>

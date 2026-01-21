@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { X, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Eye, Phone } from 'lucide-react';
 
 const Gallery: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -172,12 +172,18 @@ const Gallery: React.FC = () => {
           <p className="text-gray-600 text-lg mb-10">
             Let's bring this level of award-winning care to your property.
           </p>
-          <a 
-            href="mailto:steve@snidertlc.com" 
-            className="bg-brandOrange hover:bg-brandOrange-hover text-white px-10 py-5 rounded-full text-xl font-bold transition-all shadow-xl inline-block uppercase"
-          >
-            GET A QUOTE
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a 
+              href="mailto:steve@snidertlc.com" 
+              className="bg-brandOrange hover:bg-brandOrange-hover text-white px-10 py-5 rounded-full text-xl font-bold transition-all shadow-xl inline-block uppercase"
+            >
+              GET A QUOTE
+            </a>
+            <a href="tel:5198841581" className="flex items-center text-2xl font-black text-navy hover:text-brandOrange transition-colors">
+              <Phone className="mr-3 text-brandOrange" size={28} />
+              (519) 884-1581
+            </a>
+          </div>
         </div>
       </section>
     </div>

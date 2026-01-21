@@ -5,23 +5,28 @@ import { ArrowRight, Quote, ChevronRight } from 'lucide-react';
 import { SERVICES, TESTIMONIALS, AWARDS } from '../constants';
 
 const Home: React.FC = () => {
-  // Video ID for the background. Using the promotional video ID provided earlier.
-  const backgroundVideoId = "OfCOjs6RE5I";
+  // Video IDs for different sections
+  const heroVideoId = "XN1lUcbYgpM";
+  const featuredVideoId = "FS5aq2Sk3eg";
 
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-navy">
-        {/* YouTube Background Video */}
+        {/* YouTube Background Video - Full Width & Height Cover */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <iframe
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115vw] h-[115vh] max-w-none"
-            src={`https://www.youtube.com/embed/${backgroundVideoId}?autoplay=1&mute=1&loop=1&playlist=${backgroundVideoId}&controls=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&enablejsapi=1`}
-            allow="autoplay; encrypted-media"
-            frameBorder="0"
-          ></iframe>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full min-w-full min-h-full">
+            <iframe
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[100%] min-h-[100%] w-[177.77vh] h-[56.25vw] pointer-events-none scale-110"
+              src={`https://www.youtube.com/embed/${heroVideoId}?autoplay=1&mute=1&loop=1&playlist=${heroVideoId}&controls=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&disablekb=1`}
+              allow="autoplay; encrypted-media"
+              frameBorder="0"
+              title="Hero Background Video"
+            ></iframe>
+          </div>
         </div>
         
+        {/* Darkened Gradient Overlay for Text Readability */}
         <div className="absolute inset-0 z-10 hero-video-overlay" />
         
         <div className="relative z-20 text-center px-4 max-w-5xl">
@@ -45,31 +50,31 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Awards Bar */}
-      <div className="bg-navy py-12 relative z-30">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center items-center gap-12 md:gap-24">
-          {AWARDS.map((award, i) => (
-            <div key={i} className="flex items-center space-x-4">
-              <div className="p-3 bg-white/5 rounded-xl">
-                {award.icon}
-              </div>
-              <div>
-                <p className="text-white font-bold leading-tight">{award.title}</p>
-                <p className="text-gray-400 text-sm uppercase tracking-wider">{award.year}</p>
+      {/* Awards Bar - 3 columns for reordered awards, Award 4 moved to footer */}
+      <div className="bg-navy py-16 md:py-24 relative z-30 border-b border-white/5">
+        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 lg:gap-20 items-center">
+          {AWARDS.slice(0, 3).map((award: any, i) => (
+            <div key={i} className="flex items-center justify-center">
+              <div className="w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 flex items-center justify-center overflow-hidden transition-all duration-500">
+                <img 
+                  src={award.imageUrl} 
+                  alt={award.title} 
+                  className="w-full h-full object-contain brightness-0 invert opacity-90" 
+                />
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* About Section with Video */}
+      {/* About Section with Featured Video */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video bg-navy group">
               <iframe 
                 className="w-full h-full"
-                src={`https://www.youtube.com/embed/${backgroundVideoId}?rel=0`} 
+                src={`https://www.youtube.com/embed/${featuredVideoId}?rel=0`} 
                 title="YouTube video player" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -98,8 +103,9 @@ const Home: React.FC = () => {
                   <p className="text-gray-500 font-medium">Happy Clients</p>
                 </div>
               </div>
-              <Link to="/about" className="inline-flex items-center font-bold text-navy hover:text-brandOrange transition-colors">
-                LEARN MORE ABOUT US <ChevronRight className="ml-1 w-5 h-5" />
+              <Link to="/about" className="inline-flex items-center font-bold text-navy hover:text-brandOrange transition-colors group">
+                LEARN MORE ABOUT US 
+                <ChevronRight className="ml-1 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
@@ -116,8 +122,8 @@ const Home: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {SERVICES.map((service) => (
-              <div key={service.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group">
-                <div className="h-48 overflow-hidden relative">
+              <div key={service.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col">
+                <div className="h-48 overflow-hidden relative flex-shrink-0">
                   <img 
                     src={service.image} 
                     alt={service.title} 
@@ -125,14 +131,16 @@ const Home: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-navy/10 group-hover:bg-navy/0 transition-colors" />
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-xl font-bold text-navy mb-3">{service.title}</h3>
                   <p className="text-gray-600 text-sm mb-6 line-clamp-3">
                     {service.description}
                   </p>
-                  <Link to="/services" className="text-brandOrange font-bold text-sm inline-flex items-center hover:translate-x-1 transition-transform">
-                    READ MORE <ArrowRight className="ml-1 w-4 h-4" />
-                  </Link>
+                  <div className="mt-auto">
+                    <Link to="/services" className="text-brandOrange font-bold text-sm inline-flex items-center hover:translate-x-1 transition-transform">
+                      READ MORE <ArrowRight className="ml-1 w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -153,7 +161,7 @@ const Home: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {TESTIMONIALS.map((t, i) => (
-              <div key={i} className="bg-navy-light p-8 rounded-3xl border border-white/10 relative flex flex-col h-full">
+              <div key={i} className="bg-navy-light p-8 rounded-3xl border border-white/10 relative flex flex-col h-full hover:border-brandOrange/30 transition-colors">
                 <Quote className="absolute top-6 right-8 w-12 h-12 text-white/5" />
                 <p className="text-gray-300 italic mb-8 leading-relaxed flex-grow">
                   "{t.content}"
