@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -32,7 +31,7 @@ const App: React.FC = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/opportunities" element={<Opportunities />} />
+            <Route path="/careers" element={<Opportunities />} />
           </Routes>
         </main>
         <Footer />

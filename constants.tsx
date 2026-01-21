@@ -27,7 +27,7 @@ export const SERVICES: Service[] = [
     title: 'Fall Clean Up',
     description: 'Preparing your grounds for winter. Comprehensive leaf removal, perennial cutbacks, and final seasonal pruning.',
     image: 'https://drive.google.com/thumbnail?id=1gvz_NLR3YK-6_iwwSWGW2kxWyUQK6RH1&sz=w1200',
-    icon: 'CloudRain'
+    icon: 'Leaf'
   },
   {
     id: 'snow-removal',
@@ -52,9 +52,26 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const AWARDS = [
-  { title: "Landscape Excellence 2024", year: "2024", icon: <Award className="text-brandOrange" /> },
-  { title: "Regional Beautification Winner", year: "2022", icon: <ShieldCheck className="text-brandOrange" /> },
-  { title: "Top Rated Service", year: "2021-2024", icon: <ThumbsUp className="text-brandOrange" /> }
+  { 
+    title: "Recognition of Excellence", 
+    year: "2024", 
+    imageUrl: "https://drive.google.com/thumbnail?id=1KnOzFAdSYTxvCvEoSo0zot4o6MsP2qd6&sz=w800" 
+  },
+  { 
+    title: "Excellence Award", 
+    year: "2024", 
+    imageUrl: "https://drive.google.com/thumbnail?id=1jh03eyieh7picQbEzQUhRFOzqS3oLRDq&sz=w800" 
+  },
+  { 
+    title: "Excellence in Maintenance", 
+    year: "2021-2024", 
+    imageUrl: "https://drive.google.com/thumbnail?id=1BASRE_PWU37LrtrTJ4dPSZgsr9NfQbgf&sz=w800" 
+  },
+  { 
+    title: "National Award Winner", 
+    year: "2024", 
+    imageUrl: "https://drive.google.com/thumbnail?id=1uSTtjn2uC9MKeNtI8YjvJ0C2PaMRFnju&sz=w800" 
+  }
 ];
 
 export const CORE_TEAM: TeamMember[] = [
@@ -92,15 +109,17 @@ export const CORE_TEAM: TeamMember[] = [
 
 export const JOB_POSITIONS: JobPosition[] = [
   {
-    title: "Crew Member",
-    description: "Ability to work in a team. Basic understanding and operation of small engine equipment including string trimmer, blower, bed edger, hedge trimmer, and mowers. Basic knowledge of annual and perennial plant material. Site clean-up (weeding, tools, dead plant material). Loading and unloading of truck and trailer. Punctuality is a must. Assist with equipment maintenance.",
+    title: "Landscape Maintenance Team Member",
+    description: "As a valuable Snider TLC Landscape Maintenance Team Member, you will be part of a dynamic crew that protects our client’s investment of their beautiful properties with professionalism and excellent customer service. This job offers the opportunity to work on some of Waterloo Region’s most beautiful residential properties where the pace and job rotation will make the day go quickly.",
     requirements: [
-      "Team player attitude",
-      "Punctuality",
-      "Ability to lift 50lbs",
-      "Willingness to learn"
+      "Mowing, trimming, edging, blowing, pruning, weeding and garden clean up",
+      "Efficient and safe operation of all maintenance equipment",
+      "Preparation and loading of supplies for the day",
+      "Maintaining a positive attitude with customers and team",
+      "Ability to work outside for long periods in extreme temperatures",
+      "Must be able to lift 50 lbs and work at a fast pace"
     ],
-    qualifications: "Previous landscape maintenance experience an asset and transportation to and from work."
+    qualifications: "Positive and energetic personality with a strong focus on honesty and integrity. Previous experience preferred but not required. Excellent communication & customer service skills. Dependable and self-motivated. This is a full-time, seasonal position (April to end of November)."
   },
   {
     title: "Lead Hand",
