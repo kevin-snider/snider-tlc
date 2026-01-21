@@ -1,23 +1,27 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Quote, ChevronRight } from 'lucide-react';
 import { SERVICES, TESTIMONIALS, AWARDS } from '../constants';
 
 const Home: React.FC = () => {
+  // Video ID for the background. Using the promotional video ID provided earlier.
+  const backgroundVideoId = "OfCOjs6RE5I";
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-        {/* Placeholder Video */}
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover"
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-landscape-of-green-hills-under-a-clear-sky-4436-large.mp4" type="video/mp4" />
-        </video>
+      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-navy">
+        {/* YouTube Background Video */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <iframe
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115vw] h-[115vh] max-w-none"
+            src={`https://www.youtube.com/embed/${backgroundVideoId}?autoplay=1&mute=1&loop=1&playlist=${backgroundVideoId}&controls=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&enablejsapi=1`}
+            allow="autoplay; encrypted-media"
+            frameBorder="0"
+          ></iframe>
+        </div>
+        
         <div className="absolute inset-0 z-10 hero-video-overlay" />
         
         <div className="relative z-20 text-center px-4 max-w-5xl">
@@ -65,7 +69,7 @@ const Home: React.FC = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video">
               <iframe 
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/OfCOjs6RE5I?si=kx35ceYlHzPDcqIE" 
+                src={`https://www.youtube.com/embed/${backgroundVideoId}?rel=0`} 
                 title="YouTube video player" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
