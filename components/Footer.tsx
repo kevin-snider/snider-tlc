@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { Mail, MapPin, Instagram, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { AWARDS } from '../constants';
 
 const Footer: React.FC = () => {
   const logoUrl = "https://drive.google.com/thumbnail?id=1tlfukwjOUB_pO33xuD3cYygfhjftN_Xk&sz=w500";
@@ -19,8 +20,9 @@ const Footer: React.FC = () => {
                 className="h-24 object-contain w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
-            <p className="text-gray-400 leading-relaxed">
-              Waterloo's premier multi-award-winning landscape maintenance team. Excellence in every blade of grass since our inception.
+            
+            <p className="text-gray-400 leading-relaxed font-medium">
+              Protecting your investment... one blade at a time.
             </p>
           </div>
 
@@ -31,7 +33,7 @@ const Footer: React.FC = () => {
               <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/services" className="hover:text-white transition-colors">Our Services</Link></li>
               <li><Link to="/gallery" className="hover:text-white transition-colors">Photo Gallery</Link></li>
-              <li><Link to="/opportunities" className="hover:text-white transition-colors">Careers</Link></li>
+              <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
@@ -45,6 +47,10 @@ const Footer: React.FC = () => {
                 <span>Waterloo, ON, Canada</span>
               </li>
               <li className="flex items-center">
+                <Phone className="w-5 h-5 mr-3 text-brandOrange flex-shrink-0" />
+                <a href="tel:5198841581" className="hover:text-white">(519) 884-1581</a>
+              </li>
+              <li className="flex items-center">
                 <Mail className="w-5 h-5 mr-3 text-brandOrange flex-shrink-0" />
                 <a href="mailto:steve@snidertlc.com" className="hover:text-white">steve@snidertlc.com</a>
               </li>
@@ -52,14 +58,23 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Newsletter / CTA */}
-          <div>
+          <div className="flex flex-col">
             <h4 className="text-lg font-bold mb-6 text-brandOrange font-heading">Work With Us</h4>
             <p className="text-gray-400 mb-6 text-sm">
               We are always looking for passionate people to join our award-winning team.
             </p>
-            <Link to="/opportunities" className="inline-block border-2 border-brandOrange text-brandOrange hover:bg-brandOrange hover:text-white font-bold py-2 px-6 rounded transition-all">
+            <Link to="/careers" className="inline-block border-2 border-brandOrange text-brandOrange hover:bg-brandOrange hover:text-white font-bold py-2 px-6 rounded transition-all w-fit mb-8">
               JOIN THE TEAM
             </Link>
+            
+            {/* Award 4 - Moved here below the button */}
+            <div className="flex items-center">
+              <img 
+                src={AWARDS[3].imageUrl} 
+                alt={AWARDS[3].title} 
+                className="h-20 w-auto object-contain brightness-0 invert opacity-60"
+              />
+            </div>
           </div>
         </div>
 
