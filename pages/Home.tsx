@@ -6,7 +6,7 @@ import { SERVICES, TESTIMONIALS, AWARDS } from '../constants';
 const Home: React.FC = () => {
   // Video IDs for different sections
   const heroVideoId = "XN1lUcbYgpM";
-  const featuredVideoId = "FS5aq2Sk3eg";
+  const featuredVideoId = "OfCOjs6RE5I";
   
   const contactMessage = "Thank you for inquiring about our services. Please provide detail about your property, and primary phone number.";
   const mailtoLink = `mailto:steve@snidertlc.com?subject=Contact Request - Snider TLC&body=${encodeURIComponent(contactMessage)}`;
@@ -76,7 +76,7 @@ const Home: React.FC = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video bg-navy group">
               <iframe 
                 className="w-full h-full"
-                src={`https://www.youtube.com/embed/${featuredVideoId}?rel=0`} 
+                src={`https://www.youtube.com/embed/${featuredVideoId}?rel=0&si=OujCv4T3LTQOKMh-`} 
                 title="YouTube video player" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
