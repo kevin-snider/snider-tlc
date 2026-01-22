@@ -34,6 +34,9 @@ const Navbar: React.FC = () => {
   const hoverColorClass = 'hover:text-brandOrange';
   const activeColorClass = 'text-brandOrange';
 
+  const contactMessage = "Thank you for inquiring about our services. Please provide detail about your property, and primary phone number.";
+  const mailtoLink = `mailto:steve@snidertlc.com?subject=General Inquiry - Snider TLC&body=${encodeURIComponent(contactMessage)}`;
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${navBgClass}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,10 +74,10 @@ const Navbar: React.FC = () => {
               <Phone className="w-4 h-4 mr-2 text-brandOrange" />
               (519) 884-1581
             </a>
-            <Link to="/contact" className="bg-brandOrange hover:bg-brandOrange-hover text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all transform hover:scale-105 flex items-center shadow-lg uppercase">
+            <a href={mailtoLink} className="bg-brandOrange hover:bg-brandOrange-hover text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all transform hover:scale-105 flex items-center shadow-lg uppercase">
               <Mail className="w-4 h-4 mr-2" />
               CONTACT US
-            </Link>
+            </a>
           </div>
 
           <div className="md:hidden">
@@ -112,13 +115,13 @@ const Navbar: React.FC = () => {
             <Phone className="w-5 h-5 mr-3 text-brandOrange" />
             (519) 884-1581
           </a>
-          <Link 
-            to="/contact" 
+          <a 
+            href={mailtoLink}
             onClick={() => setIsOpen(false)}
             className="block w-full text-center bg-brandOrange text-white py-4 font-bold uppercase"
           >
             CONTACT US
-          </Link>
+          </a>
         </div>
       </div>
     </nav>

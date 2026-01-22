@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Mail, MapPin, Phone, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -6,6 +5,8 @@ import { AWARDS } from '../constants';
 
 const Footer: React.FC = () => {
   const logoUrl = "https://drive.google.com/thumbnail?id=1tlfukwjOUB_pO33xuD3cYygfhjftN_Xk&sz=w500";
+  const contactMessage = "Thank you for inquiring about our services. Please provide detail about your property, and primary phone number.";
+  const encodedMessage = encodeURIComponent(contactMessage);
 
   return (
     <footer className="bg-navy-dark text-white pt-16 pb-8">
@@ -34,7 +35,7 @@ const Footer: React.FC = () => {
               <li><Link to="/services" className="hover:text-white transition-colors">Our Services</Link></li>
               <li><Link to="/gallery" className="hover:text-white transition-colors">Photo Gallery</Link></li>
               <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+              <li><a href={`mailto:steve@snidertlc.com?subject=Contact Request - Snider TLC&body=${encodedMessage}`} className="hover:text-white transition-colors">Contact Us</a></li>
             </ul>
           </div>
 
@@ -52,7 +53,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <Mail className="w-5 h-5 mr-3 text-brandOrange flex-shrink-0" />
-                <a href="mailto:steve@snidertlc.com" className="hover:text-white">steve@snidertlc.com</a>
+                <a href={`mailto:steve@snidertlc.com?subject=General Inquiry - Snider TLC&body=${encodedMessage}`} className="hover:text-white">steve@snidertlc.com</a>
               </li>
             </ul>
           </div>
