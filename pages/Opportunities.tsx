@@ -42,11 +42,11 @@ const Opportunities: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-3 bg-gray-50 p-5 rounded-xl border border-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
                   <DollarSign className="text-brandOrange w-6 h-6 flex-shrink-0" />
-                  <span className="font-bold text-navy leading-tight">Weekly Pay</span>
+                  <span className="font-bold text-navy leading-tight">Competitive Weekly Pay</span>
                 </div>
                 <div className="flex items-center space-x-3 bg-gray-50 p-5 rounded-xl border border-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
-                  <Users className="text-brandOrange w-6 h-6 flex-shrink-0" />
-                  <span className="font-bold text-navy leading-tight">Company Events</span>
+                  <TrendingUp className="text-brandOrange w-6 h-6 flex-shrink-0" />
+                  <span className="font-bold text-navy leading-tight">Advancement Opportunities</span>
                 </div>
                 <div className="flex items-center space-x-3 bg-gray-50 p-5 rounded-xl border border-gray-100 shadow-sm transition-transform hover:scale-[1.02]">
                   <Smile className="text-brandOrange w-6 h-6 flex-shrink-0" />
@@ -77,7 +77,7 @@ const Opportunities: React.FC = () => {
           <div className="space-y-12">
             {JOB_POSITIONS.map((job, i) => {
               const emailSubject = encodeURIComponent(`Application for ${job.title} - Snider TLC`);
-              const emailBody = encodeURIComponent(`Hi Snider TLC Team,\n\nI am interested in applying for the ${job.title} position. Please find my resume attached to this email.\n\nThank you!`);
+              const emailBody = encodeURIComponent(`Hi Steve,\n\nI am interested in applying for the ${job.title} position. Please find my resume attached to this email.\n\nThank you!`);
               const mailtoLink = `mailto:steve@snidertlc.com?subject=${emailSubject}&body=${emailBody}`;
 
               return (

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { SERVICES } from '../constants';
 import { Link } from 'react-router-dom';
@@ -54,6 +53,9 @@ const Services: React.FC = () => {
     "Deicing"
   ];
 
+  const contactMessage = "Thank you for inquiring about our services. Please provide detail about your property, and primary phone number.";
+  const encodedBody = encodeURIComponent(contactMessage);
+
   return (
     <div className="pt-24">
       {/* Header */}
@@ -79,6 +81,8 @@ const Services: React.FC = () => {
             if (isSummer) dateLabel = 'May 1 - October 31';
             if (isFall) dateLabel = 'November - December';
             if (isSnow) dateLabel = 'November - March';
+
+            const mailtoLink = `mailto:steve@snidertlc.com?subject=Inquiry: ${service.title}&body=${encodedBody}`;
 
             return (
               <div 
@@ -155,9 +159,9 @@ const Services: React.FC = () => {
                     )}
                   </ul>
                   <div className="pt-6">
-                    <Link to="/contact" className="bg-navy hover:bg-navy-dark text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg inline-block">
+                    <a href={mailtoLink} className="bg-navy hover:bg-navy-dark text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg inline-block uppercase">
                       INQUIRE ABOUT THIS SERVICE
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>

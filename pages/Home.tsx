@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Quote, ChevronRight } from 'lucide-react';
@@ -8,6 +7,9 @@ const Home: React.FC = () => {
   // Video IDs for different sections
   const heroVideoId = "XN1lUcbYgpM";
   const featuredVideoId = "FS5aq2Sk3eg";
+  
+  const contactMessage = "Thank you for inquiring about our services. Please provide detail about your property, and primary phone number.";
+  const mailtoLink = `mailto:steve@snidertlc.com?subject=Contact Request - Snider TLC&body=${encodeURIComponent(contactMessage)}`;
 
   return (
     <div className="flex flex-col">
@@ -40,9 +42,9 @@ const Home: React.FC = () => {
             Waterloo's premier maintenance team providing elite results that enhance your lifestyle and property value.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/contact" className="bg-brandOrange hover:bg-brandOrange-hover text-white px-8 py-4 rounded-full text-lg font-bold transition-all transform hover:scale-105 shadow-xl inline-flex items-center justify-center uppercase">
+            <a href={mailtoLink} className="bg-brandOrange hover:bg-brandOrange-hover text-white px-8 py-4 rounded-full text-lg font-bold transition-all transform hover:scale-105 shadow-xl inline-flex items-center justify-center uppercase">
               CONTACT US <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+            </a>
             <Link to="/services" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-full text-lg font-bold transition-all inline-flex items-center justify-center">
               EXPLORE SERVICES
             </Link>
@@ -186,9 +188,9 @@ const Home: React.FC = () => {
             <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
               Join the hundreds of Waterloo residents who trust Snider TLC for world-class property maintenance.
             </p>
-            <Link to="/contact" className="bg-navy text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-navy-dark transition-colors inline-block shadow-xl uppercase">
+            <a href={mailtoLink} className="bg-navy text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-navy-dark transition-colors inline-block shadow-xl uppercase">
               CONTACT US
-            </Link>
+            </a>
           </div>
         </div>
       </section>

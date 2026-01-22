@@ -1,8 +1,28 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    service: 'Spring Clean Up',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const subject = encodeURIComponent(`Inquiry: ${formData.service}`);
+    const body = encodeURIComponent(`Full Name: ${formData.fullName}\n\nMessage: ${formData.message}`);
+    
+    window.location.href = `mailto:steve@snidertlc.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <div className="pt-24 bg-gray-50 min-h-screen">
       {/* Header */}
@@ -55,12 +75,16 @@ const Contact: React.FC = () => {
             <div className="lg:col-span-2">
               <div className="bg-white p-10 md:p-12 rounded-[2.5rem] shadow-xl border border-gray-100">
                 <h2 className="text-3xl font-black text-navy font-heading mb-8">Send Us a Message</h2>
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-bold text-navy uppercase tracking-widest mb-2">Full Name</label>
                       <input 
                         type="text" 
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        required
                         placeholder="John Doe" 
                         className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 focus:ring-2 focus:ring-brandOrange focus:border-transparent transition-all outline-none"
                       />
@@ -69,6 +93,10 @@ const Contact: React.FC = () => {
                       <label className="block text-sm font-bold text-navy uppercase tracking-widest mb-2">Email Address</label>
                       <input 
                         type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
                         placeholder="john@example.com" 
                         className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 focus:ring-2 focus:ring-brandOrange focus:border-transparent transition-all outline-none"
                       />
@@ -76,7 +104,12 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-bold text-navy uppercase tracking-widest mb-2">Service Required</label>
-                    <select className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 focus:ring-2 focus:ring-brandOrange focus:border-transparent transition-all outline-none appearance-none">
+                    <select 
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 focus:ring-2 focus:ring-brandOrange focus:border-transparent transition-all outline-none appearance-none"
+                    >
                       <option>Spring Clean Up</option>
                       <option>Summer Maintenance</option>
                       <option>Fall Clean Up</option>
@@ -87,12 +120,19 @@ const Contact: React.FC = () => {
                   <div>
                     <label className="block text-sm font-bold text-navy uppercase tracking-widest mb-2">Message</label>
                     <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
                       rows={5} 
                       placeholder="Tell us about your property..." 
                       className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 focus:ring-2 focus:ring-brandOrange focus:border-transparent transition-all outline-none"
                     ></textarea>
                   </div>
-                  <button className="w-full bg-brandOrange hover:bg-brandOrange-hover text-white font-bold py-5 rounded-xl transition-all shadow-lg flex items-center justify-center text-lg">
+                  <button 
+                    type="submit"
+                    className="w-full bg-brandOrange hover:bg-brandOrange-hover text-white font-bold py-5 rounded-xl transition-all shadow-lg flex items-center justify-center text-lg"
+                  >
                     SEND MESSAGE <Send className="ml-2 w-5 h-5" />
                   </button>
                 </form>

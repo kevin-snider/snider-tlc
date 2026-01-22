@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight, Eye, Phone } from 'lucide-react';
 
@@ -75,6 +74,9 @@ const Gallery: React.FC = () => {
       document.body.style.overflow = 'unset';
     }
   }, [selectedIndex]);
+
+  const contactMessage = "Thank you for inquiring about our services. Please provide detail about your property, and primary phone number.";
+  const mailtoLink = `mailto:steve@snidertlc.com?subject=Portfolio Inquiry - Snider TLC&body=${encodeURIComponent(contactMessage)}`;
 
   return (
     <div className="pt-24 min-h-screen bg-gray-50">
@@ -174,7 +176,7 @@ const Gallery: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a 
-              href="mailto:steve@snidertlc.com" 
+              href={mailtoLink} 
               className="bg-brandOrange hover:bg-brandOrange-hover text-white px-10 py-5 rounded-full text-xl font-bold transition-all shadow-xl inline-block uppercase"
             >
               GET A QUOTE

@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { CORE_TEAM } from '../constants';
 
 const About: React.FC = () => {
   return (
@@ -38,8 +36,8 @@ const About: React.FC = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://drive.google.com/thumbnail?id=1jyl0yF1Obpz2g9jlbsUginqZ3OHwprHd&sz=w1200" 
-                alt="Snider TLC Team Photo" 
+                src="https://drive.google.com/thumbnail?id=1o8ERVq589Kh0QpUYHlyy8OPhuOL7ECIz&sz=w1200" 
+                alt="Snider TLC Team" 
                 className="rounded-[2.5rem] shadow-2xl w-full h-auto object-contain ring-1 ring-gray-100"
               />
               <div className="absolute -bottom-8 -left-8 bg-brandOrange p-8 rounded-2xl shadow-xl hidden md:block border-4 border-white">
@@ -47,63 +45,6 @@ const About: React.FC = () => {
                 <p className="text-white/80 font-bold uppercase tracking-widest text-sm">Years of Experience</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Meet the Core Team */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-navy font-heading mt-2">Meet Our Core Team</h2>
-          </div>
-          
-          {/* Owners/Leadership Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto mb-16">
-            {CORE_TEAM.slice(0, 2).map((member, i) => (
-              <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all p-8 text-center group border border-gray-100">
-                <div className="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-brandOrange/20 group-hover:border-brandOrange transition-colors">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
-                </div>
-                <h3 className="text-2xl font-bold text-navy mb-1">{member.name}</h3>
-                <p className="text-brandOrange font-bold uppercase tracking-widest text-sm mb-4">{member.role}</p>
-                <p className="text-gray-500 leading-relaxed">{member.description}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Supervisors Row */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {CORE_TEAM.slice(2).map((member, i) => (
-              <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all p-8 text-center group border border-gray-100">
-                <div className="relative w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-brandOrange/10 group-hover:border-brandOrange transition-colors">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
-                </div>
-                <h3 className="text-xl font-bold text-navy mb-1">{member.name}</h3>
-                <p className="text-brandOrange font-bold uppercase tracking-widest text-xs mb-3">{member.role}</p>
-                <p className="text-gray-500 text-sm leading-relaxed">{member.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Group Photo */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-navy font-heading mt-2">The Whole Crew</h2>
-            <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">
-              Our team-based crews are at the heart of Snider TLC, working together to deliver exceptional results.
-            </p>
-          </div>
-          <div className="rounded-[3rem] overflow-hidden shadow-2xl relative h-[500px]">
-            <img 
-              src="https://drive.google.com/thumbnail?id=1jyl0yF1Obpz2g9jlbsUginqZ3OHwprHd&sz=w2000" 
-              alt="The Entire Snider TLC Team" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-navy/10" />
           </div>
         </div>
       </section>
